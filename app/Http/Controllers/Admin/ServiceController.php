@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ServiceStoreRequest;
+use App\Models\Service;
 use Illuminate\Http\Request;
+use ProtoneMedia\Splade\SpladeTable;
 
 class ServiceController extends Controller
 {
@@ -12,7 +15,16 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        //
+        return view('Admin.services.index', [
+            'services' => SpladeTable::for(Service::class)
+                ->withGlobalSearch(columns: ['title', 'description'])
+                ->column('title', label: 'Название услуги')
+                ->column('description', label: 'Описание услуги')
+                ->column('price', label: 'Цена услуги')
+                ->column('image', label: 'Изображение услуги')
+                ->column('isActive', label: 'Статус')
+                ->paginate(10)
+        ]);
     }
 
     /**
@@ -20,15 +32,22 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        //
+        return view('Admin.services.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(ServiceStoreRequest $request)
     {
-        //
+        $service = new Service();
+        $service->title = $request->input('title');
+        $service->description = $request->input('description');
+        $service->price = $request->input('price');
+        $service->isActive = $request->input('isActive');
+        $service->image = $request->file('image')->store('public/services');
+        $service->save();
+        return redirect()->route('services.index');
     }
 
     /**
