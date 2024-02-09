@@ -4,20 +4,20 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ServiceStoreRequest;
-use App\Models\Service;
+use App\Models\Casee;
 use Illuminate\Http\Request;
 use ProtoneMedia\Splade\Facades\Toast;
 use ProtoneMedia\Splade\SpladeTable;
 
-class ServiceController extends Controller
+class CaseeController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('Admin.services.index', [
-            'services' => SpladeTable::for(Service::class)
+        return view('Admin.casees.index', [
+            'casees' => SpladeTable::for(Casee::class)
                 ->withGlobalSearch(columns: ['title', 'description'])
                 ->column('title', label: 'Название услуги', sortable: true)
                 ->column('description', label: 'Описание услуги')
@@ -34,7 +34,7 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        return view('Admin.services.create');
+        return view('Admin.casees.create');
     }
 
     /**
@@ -42,21 +42,21 @@ class ServiceController extends Controller
      */
     public function store(ServiceStoreRequest $request)
     {
-        $service = new Service();
-        $service->title = $request->input('title');
-        $service->description = $request->input('description');
-        $service->price = $request->input('price');
-        $service->isActive = $request->input('isActive');
-        $service->image = $request->file('image')->store('public/services');
-        $service->save();
+        $casee = new Casee();
+        $casee->title = $request->input('title');
+        $casee->description = $request->input('description');
+        $casee->price = $request->input('price');
+        $casee->isActive = $request->input('isActive');
+        $casee->image = $request->file('image')->store('public/services');
+        $casee->save();
         Toast::title('Услуга добавлена');
-        return redirect()->route('services.index');
+        return redirect()->route('casees.index');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Service $service)
+    public function show(Casee $casee)
     {
         //
     }
@@ -64,38 +64,38 @@ class ServiceController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Service $service)
+    public function edit(Casee $casee)
     {
-        return view('Admin.services.edit', compact('service'));
+        return view('Admin.casees.edit', compact('casee'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Service $service)
+    public function update(Request $request, Casee $casee)
     {
-        $service->title = $request->input('title');
-        $service->description = $request->input('description');
-        $service->price = $request->input('price');
-        $service->isActive = $request->input('isActive');
+        $casee->title = $request->input('title');
+        $casee->description = $request->input('description');
+        $casee->price = $request->input('price');
+        $casee->isActive = $request->input('isActive');
         if($request->hasFile('image')){
             $image = $request->file('image');
             $fileName = $image->getClientOriginalName();
-            $image->storeAs('public/services', $fileName);
-            $service->image = $fileName;
+            $image->storeAs('public/casees', $fileName);
+            $casee->image = $fileName;
         }
-        $service->save();
+        $casee->save();
         Toast::title('Услуга обновлена');
-        return redirect()->route('services.index');
+        return redirect()->route('casees.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Service $service)
+    public function destroy(Casee $casee)
     {
-        $service->delete();
+        $casee->delete();
         Toast::title('Услуга удалена');
-        return redirect()->route('services.index');
+        return redirect()->route('casees.index');
     }
 }

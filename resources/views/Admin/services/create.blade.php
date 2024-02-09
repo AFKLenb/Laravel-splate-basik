@@ -13,7 +13,8 @@
             <x-splade-form action="{{route('services.store')}}">
                 <x-splade-input name="title" label="{{__('Название услуги')}}" placeholder="{{__('Есть пробитие')}}"/>
                 <x-splade-textarea class="mt-5" name="description" label="{{__('Описание услуги')}}" placeholder="{{__('Пробитие туза')}}"/>
-                <x-splade-file name="image"  label="{{__('Изображение услуги')}}"/>
+                <x-splade-file name="image" :show-filename="false" preview label="{{__('Изображение услуги')}}"/>
+{{--                <img class="max-w-[250px] rounded-md max-h[200px] mt-[15px] mb-[15px]" v-if="form.image" :src="form.$fileAsUrl('image')" />--}}
                 <x-splade-input name="price" label="{{__('Цена услуги')}}" placeholder="{{__('Смысла нет')}}"/>
                 <x-splade-select name="isActive" label="{{__('Статус услуги')}}">
                     <option value="0">{{__('Не активен')}}</option>
