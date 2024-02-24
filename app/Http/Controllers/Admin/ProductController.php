@@ -91,12 +91,13 @@ class ProductController extends Controller
         $product->isActive = $request->input('isActive');
         $product->isPopular = $request->input('isPopular');
         $product->isNew = $request->input('isNew');
-        if($request->hasFile('image')){
-            $image = $request->file('image');
-            $fileName = $image->getClientOriginalName();
-            $image->storeAs('public/casees', $fileName);
-            $product->image = $fileName;
-        }
+        $product->image = $request->file('image')->store('public/products');
+//        if($request->hasFile('image')){
+//            $image = $request->file('image');
+//            $fileName = $image->getClientOriginalName();
+//            $image->storeAs('public/casees', $fileName);
+//            $product->image = $fileName;
+//        }
         $product->save();
         Toast::title('Услуга обновлена');
         return redirect()->route('products.index');

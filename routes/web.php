@@ -27,7 +27,7 @@ Route::middleware(['splade'])->group(function () {
     // Registers routes to support async File Uploads with Filepond...
     Route::spladeUploads();
 
-    Route::get('/', function () {
+    Route::get('/admin', function () {
         return view('welcome', [
             'canLogin' => Route::has('login'),
             'canRegister' => Route::has('register'),
@@ -44,6 +44,14 @@ Route::middleware(['splade'])->group(function () {
         Route::resource('categories',\App\Http\Controllers\Admin\CategoryController::class );
         Route::resource('products',\App\Http\Controllers\Admin\ProductController::class );
         Route::resource('applications',\App\Http\Controllers\Admin\ApplicationController::class );
+        Route::resource('reviews',\App\Http\Controllers\Admin\ReviewsController::class );
+        Route::resource('partners',\App\Http\Controllers\Admin\PartnersController::class );
     });
-
+    Route::get('/', [\App\Http\Controllers\Client\IndexController::class, 'index'])->name('client.index');
+    Route::get('about', [\App\Http\Controllers\Client\IndexController::class, 'about'])->name('client.about');
+    Route::get('services_client', [\App\Http\Controllers\Client\IndexController::class, 'services_client'])->name('client.services_client');
+    Route::get('services_detail/{id}', [\App\Http\Controllers\Client\IndexController::class, 'services_detail'])->name('client.services_detail');
+    Route::get('page_404', [\App\Http\Controllers\Client\IndexController::class, 'page_404'])->name('client.page_404');
+    Route::get('soon', [\App\Http\Controllers\Client\IndexController::class, 'soon'])->name('client.soon');
+    Route::get('contact', [\App\Http\Controllers\Client\IndexController::class, 'contact'])->name('client.contact');
 });

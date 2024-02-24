@@ -18,11 +18,10 @@ class CaseeController extends Controller
     {
         return view('Admin.casees.index', [
             'casees' => SpladeTable::for(Casee::class)
-                ->withGlobalSearch(columns: ['title', 'description'])
-                ->column('title', label: 'Название услуги', sortable: true)
-                ->column('description', label: 'Описание услуги')
-                ->column('price', label: 'Цена услуги')
-                ->column('image', label: 'Изображение услуги', exportAs: false)
+//                ->column('title', label: 'Название услуги', sortable: true)
+//                ->column('description', label: 'Описание услуги')
+//                ->column('price', label: 'Цена услуги')
+                ->column('image', label: 'Изображение партнёра', exportAs: false)
                 ->column('isActive', label: 'Статус')
                 ->column('action', 'Действия', canBeHidden: false)
                 ->paginate(10)
@@ -43,9 +42,6 @@ class CaseeController extends Controller
     public function store(ServiceStoreRequest $request)
     {
         $casee = new Casee();
-        $casee->title = $request->input('title');
-        $casee->description = $request->input('description');
-        $casee->price = $request->input('price');
         $casee->isActive = $request->input('isActive');
         $casee->image = $request->file('image')->store('public/services');
         $casee->save();
@@ -74,9 +70,6 @@ class CaseeController extends Controller
      */
     public function update(Request $request, Casee $casee)
     {
-        $casee->title = $request->input('title');
-        $casee->description = $request->input('description');
-        $casee->price = $request->input('price');
         $casee->isActive = $request->input('isActive');
         if($request->hasFile('image')){
             $image = $request->file('image');
@@ -95,7 +88,7 @@ class CaseeController extends Controller
     public function destroy(Casee $casee)
     {
         $casee->delete();
-        Toast::title('Услуга удалена');
+        Toast::title('Партнёр удалён');
         return redirect()->route('casees.index');
     }
 }

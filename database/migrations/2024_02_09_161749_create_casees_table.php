@@ -13,10 +13,7 @@ return new class extends Migration
     {
         Schema::create('casees', function (Blueprint $table) {
             $table->id();
-            $table->string('title')->unique()->comment('Название услуги');
-            $table->text('description')->comment('Описание услуги');
-            $table->string('price')->default('0')->comment('Цена услуги');
-            $table->string('image')->comment('Фото услуги');
+            $table->text('image')->comment('Фото услуги');
             $table->boolean('isActive')->default('0')->comment('Статус услуги');
             $table->timestamps();
         });

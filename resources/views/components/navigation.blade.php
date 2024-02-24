@@ -33,6 +33,12 @@
                         <x-nav-link :href="route('applications.index')" :active="request()->routeIs('applications.index')">
                             {{ __('Заявки') }}
                         </x-nav-link>
+                        <x-nav-link :href="route('reviews.index')" :active="request()->routeIs('reviews.index')">
+                            {{ __('Отзывы') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('partners.index')" :active="request()->routeIs('partners.index')">
+                            {{ __('Партнёры') }}
+                        </x-nav-link>
                     </div>
                 </div>
 

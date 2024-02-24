@@ -13,9 +13,6 @@ class Casee extends Model
     protected $table = "casees";
 
     protected $fillable = [
-        'title',
-        'description',
-        'price',
         'image',
         'isActive'
     ];
