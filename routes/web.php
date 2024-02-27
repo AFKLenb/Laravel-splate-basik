@@ -54,4 +54,5 @@ Route::middleware(['splade'])->group(function () {
     Route::get('page_404', [\App\Http\Controllers\Client\IndexController::class, 'page_404'])->name('client.page_404');
     Route::get('soon', [\App\Http\Controllers\Client\IndexController::class, 'soon'])->name('client.soon');
     Route::get('contact', [\App\Http\Controllers\Client\IndexController::class, 'contact'])->name('client.contact');
+    Route::get('fitback', [\App\Http\Controllers\Client\IndexController::class, 'fitback'])->name('client.fitback');
 });

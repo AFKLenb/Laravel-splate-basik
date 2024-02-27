@@ -29,6 +29,8 @@
                         <li><a class="dropdown-item" href="soon">Coming Soon</a></li>
 
                         <li><a class="dropdown-item" href="page_404">Page 404</a></li>
+
+                        <li><a class="dropdown-item" href="fitback">Fitback</a></li>
                     </ul>
                 </li>
 
