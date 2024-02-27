@@ -31,24 +31,17 @@
             <div class="row">
 
                 <div class="col-lg-10 col-12 text-center mx-auto">
-                    <h3 class="page-404-title">Fitback</h3>
-
-                    <h4>Page Not Found</h4>
-
-                    <p>The page you are looking for doesn't exist or has been moved.</p>
-
-                    <a class="custom-btn btn button button--atlas mt-4" href="/">
-                        <span>Back to Home</span>
-
-                        <div class="marquee" aria-hidden="true">
-                            <div class="marquee__inner">
-                                <span>Back to Home</span>
-                                <span>Back to Home</span>
-                                <span>Back to Home</span>
-                                <span>Back to Home</span>
-                            </div>
-                        </div>
-                    </a>
+                    <x-splade-form action="{{route('client.FitbackStore')}}" >
+                        <x-splade-input name="name" label="{{__('ФИО')}}" placeholder="{{__('Алеша')}}"/>
+                        <x-splade-input class="mt-5" name="number" label="{{__('Номер телефона')}}" placeholder="{{__('+8-(800)-555-35-35')}}"/>
+                        <x-splade-input class="mt-5" name="email" label="{{__('Сообщение')}}" placeholder="{{__('Ваш текст ')}}"/>
+                        <x-splade-input date class="mt-5" name="dateCreate" label="{{__('Дата проведения работ')}}" placeholder="{{__('21.10.2024')}}"/>
+                        <x-splade-select name="isType" label="{{__('Тип помещения')}}">
+                            <option value="0">{{__('Квартира')}}</option>
+                            <option value="1">{{__('Дом')}}</option>
+                        </x-splade-select>
+                        <x-splade-submit label="Отправить" class="mt-3"/>
+                    </x-splade-form>
                 </div>
 
             </div>

@@ -46,6 +46,7 @@ Route::middleware(['splade'])->group(function () {
         Route::resource('applications',\App\Http\Controllers\Admin\ApplicationController::class );
         Route::resource('reviews',\App\Http\Controllers\Admin\ReviewsController::class );
         Route::resource('partners',\App\Http\Controllers\Admin\PartnersController::class );
+
     });
     Route::get('/', [\App\Http\Controllers\Client\IndexController::class, 'index'])->name('client.index');
     Route::get('about', [\App\Http\Controllers\Client\IndexController::class, 'about'])->name('client.about');
@@ -55,4 +56,5 @@ Route::middleware(['splade'])->group(function () {
     Route::get('soon', [\App\Http\Controllers\Client\IndexController::class, 'soon'])->name('client.soon');
     Route::get('contact', [\App\Http\Controllers\Client\IndexController::class, 'contact'])->name('client.contact');
     Route::get('fitback', [\App\Http\Controllers\Client\IndexController::class, 'fitback'])->name('client.fitback');
+    Route::post('store', [\App\Http\Controllers\Client\FitbackController::class, 'store'])->name('client.FitbackStore');
 });

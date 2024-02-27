@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name')->comment('ФИО');;
             $table->string('number')->comment('Номер телефона');;
-            $table->text('email')->comment('Электронная почта');;
+            $table->text('email')->comment('Сообщение');;
             $table->string('dateCreate')->comment('Дата создания');;
             $table->string('date')->comment('Дата вызова');;
             $table->boolean('isType')->default('0')->comment('Тип помещения');

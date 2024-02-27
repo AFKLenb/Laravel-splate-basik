@@ -20,8 +20,9 @@ class ApplicationController extends Controller
                 ->withGlobalSearch(columns: ['name', 'isStatus'])
                 ->column('name', label: 'ФИО', sortable: true)
                 ->column('number', label: 'Номер телефона')
-                ->column('email', label: 'Электронная почта')
-                ->column('date', label: 'Дата создания', exportAs: false)
+                ->column('email', label: 'Сообщение')
+                ->column('date', label: 'Дата проведения ', exportAs: false)
+                ->column('dateCreate', label: 'Дата создания', exportAs: false)
                 ->column('isType', label: 'Тип')
                 ->column('isStatus', label: 'Статус')
                 ->column('action', 'Действия', canBeHidden: false)
@@ -47,7 +48,7 @@ class ApplicationController extends Controller
         $application->name = $request->input('name');
         $application->number = $request->input('number');
         $application->email = $request->input('email');
-        $application->date = $request->input('date');
+        $application->date = now()->format('d/m/Y');
         $application->dateCreate = $request->input('dateCreate');
         $application->isType = $request->input('isType');
         $application->isStatus = $request->input('isStatus');
@@ -59,9 +60,9 @@ class ApplicationController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Application $application)
     {
-        //
+        return view('Admin.applications.show', compact('application'));
     }
 
     /**

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
+use App\Models\Application;
 use App\Models\Partner;
 use App\Models\Product;
 use App\Models\Review;
