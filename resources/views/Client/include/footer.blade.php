@@ -8,13 +8,13 @@
                 </div>
 
                 <ul class="footer-menu d-flex flex-wrap ms-5">
-                    <li class="footer-menu-item"><a href="#" class="footer-menu-link">About Us</a></li>
+                    <li class="footer-menu-item"><a href="about" class="footer-menu-link">About Us</a></li>
 
                     <li class="footer-menu-item"><a href="#" class="footer-menu-link">Blog</a></li>
 
-                    <li class="footer-menu-item"><a href="#" class="footer-menu-link">Reviews</a></li>
+                    <li class="footer-menu-item"><a href="fitback" class="footer-menu-link">Reviews</a></li>
 
-                    <li class="footer-menu-item"><a href="#" class="footer-menu-link">Contact</a></li>
+                    <li class="footer-menu-item"><a href="contact" class="footer-menu-link">Contact</a></li>
                 </ul>
             </div>
 

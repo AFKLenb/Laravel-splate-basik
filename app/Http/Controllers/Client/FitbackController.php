@@ -21,6 +21,6 @@ class FitbackController extends Controller
         $applications->isStatus = '0';
         $applications->save();
         Toast::title('Заявка отправлена');
-        return redirect()->route('client.fitback');
+        return redirect()->route('client.contact');
     }
 }

@@ -21,7 +21,8 @@
                     <option value="5">{{__('⭐️⭐️⭐️⭐️⭐️')}}</option>
                 </x-splade-select>
                 <x-splade-file name="image" :show-filename="false" preview label="{{__('Изображение отзыва')}}"/>
-                <img class="max-w-[250px] rounded-md max-h[200px] mt-[15px] mb-[15px]" v-if="form.image" :src="form.$fileAsUrl('image')" />
+                <img class="max-w-[150px] rounded-md max-h-[150px] mt-[15px] mb-[15px]" src="{{Storage::url($review->image)}}" alt="">
+
                 <x-splade-select name="isActive" label="{{__('Статус отзыва')}}">
                     <option value="0">{{__('Не активен')}}</option>
                     <option value="1">{{__('Активен')}}</option>

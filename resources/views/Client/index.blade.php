@@ -421,7 +421,15 @@
                                     <h4 class="mb-0">{{$review->name}}</h4>
 
                                     <div class="reviews-icons mb-1">
-                                        @if($review->rating == 1)
+                                        @if($review->rating == 0)
+                                            <div class="text-left">
+                                                <i class="bi-star"></i>
+                                                <i class="bi-star"></i>
+                                                <i class="bi-star"></i>
+                                                <i class="bi-star"></i>
+                                                <i class="bi-star"></i>
+                                            </div>
+                                        @elseif($review->rating == 1)
                                             <div class="text-left">
                                                 <i class="bi-star-fill"></i>
                                                 <i class="bi-star"></i>

@@ -46,8 +46,8 @@ class ReviewsController extends Controller
         $reviews->name = $request->input('name');
         $reviews->text = $request->input('text');
         $reviews->rating = $request->input('rating');
-        $reviews->isActive = $request->input('isActive');
         $reviews->image = $request->file('image')->store('public/reviews');
+        $reviews->isActive = $request->input('isActive');
         $reviews->save();
         Toast::title('Отзыв добавлен');
         return redirect()->route('reviews.index');
@@ -78,7 +78,6 @@ class ReviewsController extends Controller
         $review->text = $request->input('text');
         $review->rating = $request->input('rating');
         $review->isActive = $request->input('isActive');
-        $review->image = $request->file('image')->store('public/reviews');
         if($request->hasFile('image')){
             $image = $request->file('image');
             $fileName = $image->getClientOriginalName();
