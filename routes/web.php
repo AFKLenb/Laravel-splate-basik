@@ -46,6 +46,8 @@ Route::middleware(['splade'])->group(function () {
         Route::resource('applications',\App\Http\Controllers\Admin\ApplicationController::class );
         Route::resource('reviews',\App\Http\Controllers\Admin\ReviewsController::class );
         Route::resource('partners',\App\Http\Controllers\Admin\PartnersController::class );
+        Route::resource('settings', \App\Http\Controllers\Admin\SettingsController::class );
+        Route::resource('socials', \App\Http\Controllers\Admin\SocialController::class );
 
     });
     Route::get('/', [\App\Http\Controllers\Client\IndexController::class, 'index'])->name('client.index');

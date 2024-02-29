@@ -1,9 +1,12 @@
+@php
+    $setting = App\Models\Setting::find(1);
+@endphp
 <nav class="navbar navbar-expand-lg">
     <div class="container">
         <a class="navbar-brand flex items-center" href="/">
-            <img src="{{ asset('/assets/images/bubbles.png') }}" class="logo img-fluid" alt="">
+            <img src="{{Storage::url($setting->logo)}}" class="logo img-fluid" alt="">
 
-            <span class="ms-2">Clean Work</span>
+            <span class="ms-2">{{$setting->name}}</span>
         </a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

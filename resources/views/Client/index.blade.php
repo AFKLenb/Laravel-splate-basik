@@ -1,3 +1,6 @@
+@php
+    $setting = App\Models\Setting::find(1);
+@endphp
 @extends('client.layout.layout')
 {{-- Заголовок для страницы --}}
 @section('title') {{ __('Главная страница') }} @endsection
@@ -65,7 +68,7 @@
                             <i class="bi-telephone-fill custom-icon me-2"></i>
 
                             <a href="tel: 110-220-9800">
-                                110-220-9800
+                                {{$setting->phone_number}}
                             </a>
                         </p>
                     </div>

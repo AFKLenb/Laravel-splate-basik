@@ -39,6 +39,12 @@
                         <x-nav-link :href="route('partners.index')" :active="request()->routeIs('partners.index')">
                             {{ __('Партнёры') }}
                         </x-nav-link>
+                        <x-nav-link :href="route('socials.index')" :active="request()->routeIs('socials.index')">
+                            {{ __('Соц-сети') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('settings.index')" :active="request()->routeIs('settings.index')">
+                            {{ __('Настройки') }}
+                        </x-nav-link>
                     </div>
                 </div>
 
